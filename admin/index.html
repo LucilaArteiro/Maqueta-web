@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="robots" content="noindex, nofollow" />
+
+    <meta name="theme-color" content="#FAF5EE" />
+
+    <title>Panel administrativo | Corazón de Melón</title>
+
+    <!-- Tipografías -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Iconos -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <!-- Estilos -->
+
+    <link rel="stylesheet" href="admin.css" />
+
+    <script src="admin.js" defer></script>
+  </head>
+
+  <body>
+    <!-- =====================================
+         ENCABEZADO
+    ====================================== -->
+
+    <header class="admin-header">
+      <div class="header-left">
+        <button
+          type="button"
+          id="menuToggle"
+          class="menu-toggle"
+          aria-label="Abrir menú"
+          aria-controls="sidebar"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a href="#inicio" class="admin-brand">
+          <span class="brand-heart">♡</span>
+
+          <div class="brand-text">
+            <strong>Corazón de Melón</strong>
+
+            <small>Panel administrativo</small>
+          </div>
+        </a>
+      </div>
+
+      <div class="header-actions">
+        <a href="../index.html" class="store-button">
+          <i class="fa-solid fa-store"></i>
+
+          <span>Ver tienda</span>
+        </a>
+
+        <div class="admin-profile">
+          <div class="profile-avatar">
+            <i class="fa-regular fa-user"></i>
+          </div>
+
+          <div class="profile-info">
+            <strong>Administración</strong>
+
+            <small>Corazón de Melón</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FONDO DEL MENÚ EN CELULAR -->
+
+    <div id="sidebarOverlay" class="sidebar-overlay" hidden></div>
+
+    <!-- =====================================
+         CONTENEDOR PRINCIPAL
+    ====================================== -->
+
+    <div class="admin-layout">
+      <!-- =================================
+             MENÚ LATERAL
+        ================================== -->
+
+      <aside id="sidebar" class="sidebar">
+        <div class="sidebar-heading">
+          <span>ADMINISTRACIÓN</span>
+
+          <button
+            type="button"
+            id="closeMenu"
+            class="close-menu"
+            aria-label="Cerrar menú"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Menú administrativo">
+          <p class="nav-label">GENERAL</p>
+
+          <button type="button" class="nav-item active" data-section="inicio">
+            <i class="fa-solid fa-house"></i>
+
+            <span>Inicio</span>
+          </button>
+
+          <p class="nav-label">CATÁLOGO</p>
+
+          <button type="button" class="nav-item" data-section="agregar">
+            <i class="fa-solid fa-circle-plus"></i>
+
+            <span>Agregar producto</span>
+          </button>
+
+          <button type="button" class="nav-item" data-section="publicados">
+            <i class="fa-solid fa-shirt"></i>
+
+            <span>Productos publicados</span>
+
+            <span id="navPublishedCount" class="nav-count">0</span>
+          </button>
+
+          <button type="button" class="nav-item" data-section="borradores">
+            <i class="fa-regular fa-file-lines"></i>
+
+            <span>Borradores</span>
+
+            <span id="navDraftCount" class="nav-count">0</span>
+          </button>
+
+          <button type="button" class="nav-item" data-section="categorias">
+            <i class="fa-solid fa-layer-group"></i>
+
+            <span>Categorías</span>
+          </button>
+
+          <button type="button" class="nav-item" data-section="stock">
+            <i class="fa-solid fa-boxes-stacked"></i>
+
+            <span>Control de stock</span>
+          </button>
+
+          <p class="nav-label">TIENDA WEB</p>
+
+          <button type="button" class="nav-item" data-section="promociones">
+            <i class="fa-solid fa-tags"></i>
+
+            <span>Promociones</span>
+          </button>
+
+          <button type="button" class="nav-item" data-section="personalizacion">
+            <i class="fa-solid fa-palette"></i>
+
+            <span>Personalización</span>
+          </button>
+
+          <button type="button" class="nav-item" data-section="configuracion">
+            <i class="fa-solid fa-gear"></i>
+
+            <span>Configuración</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <span class="sidebar-heart">♡</span>
+
+          <strong>Corazón de Melón</strong>
+
+          <small>Baby & Kids Wear</small>
+
+          <span class="demo-label"> Panel de demostración </span>
+
+          <a href="../index.html" class="back-store">
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Volver a la tienda
+          </a>
+        </div>
+      </aside>
+
+      <!-- =================================
+             CONTENIDO PRINCIPAL
+        ================================== -->
+
+      <main class="admin-main" id="mainContent">
+        <!-- =============================
+                 SECCIÓN: INICIO
+            ============================== -->
+
+        <section id="inicio" class="admin-section active">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">PANEL ADMINISTRATIVO</p>
+
+              <h1>¡Bienvenida!</h1>
+
+              <p class="section-description">
+                Administrá Corazón de Melón desde un solo lugar.
+              </p>
+            </div>
+
+            <button type="button" class="btn btn-primary" data-go="agregar">
+              <i class="fa-solid fa-plus"></i>
+
+              Agregar producto
+            </button>
+          </div>
+
+          <!-- RESUMEN GENERAL -->
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-icon pink">
+                <i class="fa-solid fa-shirt"></i>
+              </div>
+
+              <div class="stat-content">
+                <span>Productos publicados</span>
+
+                <strong id="statPublished">0</strong>
+              </div>
+
+              <button type="button" class="stat-link" data-go="publicados">
+                Ver productos
+
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon cream">
+                <i class="fa-regular fa-file-lines"></i>
+              </div>
+
+              <div class="stat-content">
+                <span>Borradores</span>
+
+                <strong id="statDrafts">0</strong>
+              </div>
+
+              <button type="button" class="stat-link" data-go="borradores">
+                Ver borradores
+
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon gold">
+                <i class="fa-solid fa-layer-group"></i>
+              </div>
+
+              <div class="stat-content">
+                <span>Categorías</span>
+
+                <strong id="statCategories">0</strong>
+              </div>
+
+              <button type="button" class="stat-link" data-go="categorias">
+                Ver categorías
+
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon warning">
+                <i class="fa-solid fa-box-open"></i>
+              </div>
+
+              <div class="stat-content">
+                <span>Productos con stock bajo</span>
+
+                <strong id="statLowStock">0</strong>
+              </div>
+
+              <button type="button" class="stat-link" data-go="stock">
+                Revisar stock
+
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </article>
+          </div>
+
+          <!-- ACCESOS RÁPIDOS -->
+
+          <div class="dashboard-grid">
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Accesos rápidos</h2>
+
+                <p>Gestioná las principales funciones de tu tienda.</p>
+              </div>
+
+              <div class="quick-actions">
+                <button type="button" class="quick-action" data-go="agregar">
+                  <i class="fa-solid fa-circle-plus"></i>
+
+                  <span>Agregar una prenda</span>
+
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button type="button" class="quick-action" data-go="publicados">
+                  <i class="fa-solid fa-shirt"></i>
+
+                  <span>Administrar productos</span>
+
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button type="button" class="quick-action" data-go="stock">
+                  <i class="fa-solid fa-boxes-stacked"></i>
+
+                  <span>Actualizar stock</span>
+
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button
+                  type="button"
+                  class="quick-action"
+                  data-go="promociones"
+                >
+                  <i class="fa-solid fa-tags"></i>
+
+                  <span>Crear una promoción</span>
+
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button
+                  type="button"
+                  class="quick-action"
+                  data-go="personalizacion"
+                >
+                  <i class="fa-solid fa-image"></i>
+
+                  <span>Modificar la tienda</span>
+
+                  <i class="fa-solid fa-chevron-right"></i>
+                </button>
+              </div>
+            </article>
+
+            <!-- PRODUCTOS RECIENTES -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Últimos productos</h2>
+
+                <p>Prendas agregadas recientemente.</p>
+              </div>
+
+              <div id="recentProducts" class="recent-products">
+                <!-- Contenido generado por JavaScript -->
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-outline"
+                data-go="publicados"
+              >
+                Ver todos los productos
+              </button>
+            </article>
+          </div>
+
+          <!-- ALERTAS DE STOCK -->
+
+          <article class="panel-card stock-alert-card">
+            <div class="card-heading">
+              <h2>
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                Alertas de stock
+              </h2>
+
+              <p>Revisá las prendas que necesitan reposición.</p>
+            </div>
+
+            <div id="dashboardStockAlerts">
+              <!-- Alertas generadas por JavaScript -->
+            </div>
+          </article>
+        </section>
+
+        <!-- =============================
+                 SECCIÓN: AGREGAR PRODUCTO
+            ============================== -->
+
+        <section id="agregar" class="admin-section" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">CATÁLOGO</p>
+
+              <h1 id="productFormTitle">Agregar producto</h1>
+
+              <p class="section-description">
+                Completá la información de la prenda para incorporarla a tu
+                tienda.
+              </p>
+            </div>
+          </div>
+
+          <form id="productForm">
+            <input type="hidden" id="editingProductId" value="" />
+
+            <!-- INFORMACIÓN GENERAL -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Información general</h2>
+
+                <p>Datos principales de la prenda.</p>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="productName"> Nombre del producto * </label>
+
+                  <input
+                    type="text"
+                    id="productName"
+                    placeholder="Ej. Vestido Amelia"
+                    maxlength="100"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="productCategory"> Categoría * </label>
+
+                  <select id="productCategory" required>
+                    <option value="">Seleccionar categoría</option>
+
+                    <option value="Bebés">Bebés</option>
+
+                    <option value="Nenas">Nenas</option>
+
+                    <option value="Nenes">Nenes</option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="productDescription"> Descripción * </label>
+
+                  <textarea
+                    id="productDescription"
+                    rows="5"
+                    maxlength="1000"
+                    placeholder="Describí la prenda, sus materiales y características..."
+                    required
+                  ></textarea>
+
+                  <small class="field-help">
+                    Esta descripción se mostrará en el catálogo y en el detalle
+                    del producto.
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label for="productCode"> Código del producto </label>
+
+                  <input
+                    type="text"
+                    id="productCode"
+                    placeholder="Ej. CDM-001"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="productMaterial"> Material </label>
+
+                  <input
+                    type="text"
+                    id="productMaterial"
+                    placeholder="Ej. Algodón"
+                  />
+                </div>
+              </div>
+            </article>
+
+            <!-- FOTOGRAFÍAS -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Fotografías del producto</h2>
+
+                <p>Agregá imágenes para mostrar los detalles de la prenda.</p>
+              </div>
+
+              <label for="productImages" class="upload-area">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                <strong> Seleccionar fotografías </strong>
+
+                <span> Tocá o hacé clic para subir imágenes </span>
+
+                <small> JPG, PNG o WEBP </small>
+
+                <input
+                  type="file"
+                  id="productImages"
+                  accept="image/jpeg,image/png,image/webp"
+                  multiple
+                />
+              </label>
+
+              <div id="imagePreview" class="image-preview-grid">
+                <!-- Vista previa de las fotografías -->
+              </div>
+
+              <p class="field-help">
+                Recomendamos fotografías de 900 × 1200 px, con buena iluminación
+                y un fondo uniforme.
+              </p>
+
+              <p class="field-help">
+                Podrás seleccionar una fotografía principal y eliminar las que
+                no quieras utilizar.
+              </p>
+            </article>
+
+            <!-- PRECIO -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Precio y promoción</h2>
+
+                <p>Definí el precio de venta.</p>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="productPrice"> Precio de venta (ARS) * </label>
+
+                  <div class="input-prefix">
+                    <span>$</span>
+
+                    <input
+                      type="number"
+                      id="productPrice"
+                      min="1"
+                      step="1"
+                      placeholder="0"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="productOfferPrice">
+                    Precio promocional (ARS)
+                  </label>
+
+                  <div class="input-prefix">
+                    <span>$</span>
+
+                    <input
+                      type="number"
+                      id="productOfferPrice"
+                      min="1"
+                      step="1"
+                      placeholder="Opcional"
+                    />
+                  </div>
+
+                  <small class="field-help">
+                    Dejalo vacío si la prenda no tiene descuento.
+                  </small>
+                </div>
+              </div>
+            </article>
+
+            <!-- TALLES -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Talles disponibles</h2>
+
+                <p>
+                  Seleccioná o agregá los talles correspondientes a la prenda.
+                </p>
+              </div>
+
+              <h3 class="field-title">Talles de bebés</h3>
+
+              <div class="size-options">
+                <label class="size-checkbox">
+                  <input
+                    type="checkbox"
+                    name="productSize"
+                    value="Recién nacido"
+                  />
+                  <span>Recién nacido</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="0-3 meses" />
+                  <span>0-3 meses</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="3-6 meses" />
+                  <span>3-6 meses</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="6-9 meses" />
+                  <span>6-9 meses</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input
+                    type="checkbox"
+                    name="productSize"
+                    value="9-12 meses"
+                  />
+                  <span>9-12 meses</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input
+                    type="checkbox"
+                    name="productSize"
+                    value="12-18 meses"
+                  />
+                  <span>12-18 meses</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input
+                    type="checkbox"
+                    name="productSize"
+                    value="18-24 meses"
+                  />
+                  <span>18-24 meses</span>
+                </label>
+              </div>
+
+              <h3 class="field-title">Talles infantiles</h3>
+
+              <div class="size-options">
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="2" />
+                  <span>2</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="4" />
+                  <span>4</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="6" />
+                  <span>6</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="8" />
+                  <span>8</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="10" />
+                  <span>10</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="12" />
+                  <span>12</span>
+                </label>
+
+                <label class="size-checkbox">
+                  <input type="checkbox" name="productSize" value="Único" />
+                  <span>Único</span>
+                </label>
+              </div>
+
+              <!-- TALLE PERSONALIZADO -->
+
+              <div class="inline-form">
+                <div class="form-group">
+                  <label for="customSize"> Agregar otro talle </label>
+
+                  <input
+                    type="text"
+                    id="customSize"
+                    placeholder="Escribí el talle"
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  id="addCustomSize"
+                  class="btn btn-outline"
+                >
+                  <i class="fa-solid fa-plus"></i>
+
+                  Agregar
+                </button>
+              </div>
+
+              <div id="customSizesList" class="size-options"></div>
+            </article>
+
+            <!-- COLORES -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Colores disponibles</h2>
+
+                <p>Agregá los colores de la prenda.</p>
+              </div>
+
+              <div class="color-form">
+                <div class="form-group">
+                  <label for="colorName"> Nombre del color </label>
+
+                  <input
+                    type="text"
+                    id="colorName"
+                    placeholder="Ej. Rosa pastel"
+                  />
+                </div>
+
+                <div class="form-group color-picker-group">
+                  <label for="colorValue"> Color </label>
+
+                  <input type="color" id="colorValue" value="#D5A39B" />
+                </div>
+
+                <button type="button" id="addColor" class="btn btn-outline">
+                  <i class="fa-solid fa-plus"></i>
+
+                  Agregar color
+                </button>
+              </div>
+
+              <div id="colorsList" class="colors-list">
+                <!-- Colores agregados -->
+              </div>
+            </article>
+
+            <!-- STOCK -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Stock de la prenda</h2>
+
+                <p>
+                  Administrá las unidades disponibles de cada talle y color.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                id="generateVariants"
+                class="btn btn-outline"
+              >
+                <i class="fa-solid fa-table-cells"></i>
+
+                Generar combinaciones
+              </button>
+
+              <p class="field-help">
+                Primero seleccioná los talles y colores. Después generá las
+                combinaciones para indicar el stock de cada variante.
+              </p>
+
+              <div id="variantsContainer" class="variants-container">
+                <!-- Variantes de talle y color -->
+              </div>
+
+              <div class="stock-total">
+                <span>Stock total</span>
+
+                <strong id="totalProductStock"> 0 unidades </strong>
+              </div>
+
+              <div class="form-group">
+                <label for="lowStockLimit">
+                  Avisar cuando el stock sea menor o igual a:
+                </label>
+
+                <input
+                  type="number"
+                  id="lowStockLimit"
+                  min="0"
+                  step="1"
+                  value="3"
+                />
+              </div>
+            </article>
+
+            <!-- VISIBILIDAD -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Presentación en la tienda</h2>
+
+                <p>Elegí cómo se mostrará el producto.</p>
+              </div>
+
+              <div class="form-group">
+                <label for="productBadge"> Etiqueta del producto </label>
+
+                <select id="productBadge">
+                  <option value="">Sin etiqueta</option>
+
+                  <option value="Nuevo">Nuevo</option>
+
+                  <option value="Nueva colección">Nueva colección</option>
+
+                  <option value="Oferta">Oferta</option>
+
+                  <option value="Últimas unidades">Últimas unidades</option>
+                </select>
+              </div>
+
+              <label class="switch-row">
+                <div>
+                  <strong>Producto destacado</strong>
+
+                  <small> Destacar esta prenda en la tienda. </small>
+                </div>
+
+                <input type="checkbox" id="productFeatured" />
+
+                <span class="switch"></span>
+              </label>
+
+              <label class="switch-row">
+                <div>
+                  <strong>Visible en el catálogo</strong>
+
+                  <small>
+                    Permitir que los clientes encuentren esta prenda.
+                  </small>
+                </div>
+
+                <input type="checkbox" id="productVisible" checked />
+
+                <span class="switch"></span>
+              </label>
+            </article>
+
+            <!-- BOTONES DE GUARDADO -->
+
+            <div class="form-actions">
+              <button
+                type="button"
+                id="resetProductForm"
+                class="btn btn-secondary"
+              >
+                <i class="fa-solid fa-xmark"></i>
+
+                Cancelar
+              </button>
+
+              <button
+                type="submit"
+                id="saveDraft"
+                value="draft"
+                formnovalidate
+                class="btn btn-outline"
+              >
+                <i class="fa-regular fa-floppy-disk"></i>
+
+                Guardar borrador
+              </button>
+
+              <button
+                type="submit"
+                id="publishProduct"
+                value="published"
+                class="btn btn-primary"
+              >
+                <i class="fa-solid fa-check"></i>
+
+                Publicar producto
+              </button>
+            </div>
+
+            <p id="productFormMessage" class="form-message" role="status"></p>
+          </form>
+        </section>
+
+        <!-- =============================
+                 SECCIÓN: PRODUCTOS PUBLICADOS
+            ============================== -->
+
+        <section id="publicados" class="admin-section" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">CATÁLOGO</p>
+
+              <h1>Productos publicados</h1>
+
+              <p class="section-description">
+                Consultá, editá y administrá todas las prendas de tu tienda.
+              </p>
+            </div>
+
+            <button type="button" class="btn btn-primary" data-go="agregar">
+              <i class="fa-solid fa-plus"></i>
+
+              Agregar producto
+            </button>
+          </div>
+
+          <!-- FILTROS -->
+
+          <article class="panel-card">
+            <div class="filters-grid">
+              <div class="form-group">
+                <label for="publishedSearch"> Buscar producto </label>
+
+                <div class="search-input">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+
+                  <input
+                    type="search"
+                    id="publishedSearch"
+                    placeholder="Nombre de la prenda..."
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="publishedCategory"> Categoría </label>
+
+                <select id="publishedCategory">
+                  <option value="">Todas las categorías</option>
+
+                  <option value="Bebés">Bebés</option>
+
+                  <option value="Nenas">Nenas</option>
+
+                  <option value="Nenes">Nenes</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="publishedStatus"> Visibilidad </label>
+
+                <select id="publishedStatus">
+                  <option value="">Todos</option>
+
+                  <option value="visible">Visibles</option>
+
+                  <option value="hidden">Ocultos</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="publishedSort"> Ordenar por </label>
+
+                <select id="publishedSort">
+                  <option value="recent">Más recientes</option>
+
+                  <option value="name">Nombre A-Z</option>
+
+                  <option value="price-asc">Menor precio</option>
+
+                  <option value="price-desc">Mayor precio</option>
+
+                  <option value="stock">Menor stock</option>
+                </select>
+              </div>
+            </div>
+          </article>
+
+          <!-- LISTADO -->
+
+          <article class="panel-card">
+            <div class="list-heading">
+              <h2>Listado de productos</h2>
+
+              <span id="publishedResults" class="results-count">
+                0 productos
+              </span>
+            </div>
+
+            <div class="table-container desktop-table">
+              <table class="products-table">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+
+                    <th>Categoría</th>
+
+                    <th>Precio</th>
+
+                    <th>Stock</th>
+
+                    <th>Estado</th>
+
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+
+                <tbody id="publishedTableBody">
+                  <!-- Productos generados por JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- LISTADO ADAPTADO A CELULAR -->
+
+            <div id="publishedMobileList" class="mobile-product-list"></div>
+
+            <div id="publishedEmpty" class="empty-state" hidden>
+              <i class="fa-solid fa-shirt"></i>
+
+              <h3>No hay productos para mostrar</h3>
+
+              <p>Agregá una prenda o modificá los filtros de búsqueda.</p>
+
+              <button type="button" class="btn btn-primary" data-go="agregar">
+                Agregar producto
+              </button>
+            </div>
+          </article>
+        </section>
+
+        <!-- =============================
+                 SECCIÓN: BORRADORES
+            ============================== -->
+
+        <section id="borradores" class="admin-section" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">CATÁLOGO</p>
+
+              <h1>Borradores</h1>
+
+              <p class="section-description">
+                Prepará tus productos y publicalos cuando estén listos.
+              </p>
+            </div>
+
+            <button type="button" class="btn btn-primary" data-go="agregar">
+              <i class="fa-solid fa-plus"></i>
+
+              Nuevo producto
+            </button>
+          </div>
+
+          <article class="panel-card">
+            <div class="form-group">
+              <label for="draftSearch"> Buscar borrador </label>
+
+              <div class="search-input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                  type="search"
+                  id="draftSearch"
+                  placeholder="Buscar por nombre..."
+                />
+              </div>
+            </div>
+          </article>
+
+          <div id="draftsList" class="drafts-grid">
+            <!-- Borradores generados por JavaScript -->
+          </div>
+
+          <article id="draftsEmpty" class="panel-card empty-state" hidden>
+            <i class="fa-regular fa-file-lines"></i>
+
+            <h3>No tenés borradores guardados</h3>
+
+            <p>
+              Los productos que guardes sin publicar aparecerán en esta sección.
+            </p>
+
+            <button type="button" class="btn btn-primary" data-go="agregar">
+              Crear producto
+            </button>
+          </article>
+        </section>
+
+        <!-- =============================
+                 SECCIÓN: CATEGORÍAS
+            ============================== -->
+
+        <section id="categorias" class="admin-section" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">ORGANIZACIÓN</p>
+
+              <h1>Categorías</h1>
+
+              <p class="section-description">
+                Organizá las prendas de tu catálogo.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              id="openCategoryModal"
+              class="btn btn-primary"
+            >
+              <i class="fa-solid fa-plus"></i>
+
+              Nueva categoría
+            </button>
+          </div>
+
+          <div id="categoriesList" class="admin-categories-grid">
+            <!-- Categorías generadas por JavaScript -->
+          </div>
+        </section>
+
+        <!-- =============================
+                 SECCIÓN: CONTROL DE STOCK
+            ============================== -->
+
+        <section id="stock" class="admin-section" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">INVENTARIO</p>
+
+              <h1>Control de stock</h1>
+
+              <p class="section-description">
+                Revisá y actualizá la disponibilidad de tus prendas.
+              </p>
+            </div>
+          </div>
+
+          <div class="stock-stats-grid">
+            <article class="panel-card stock-stat">
+              <i class="fa-solid fa-boxes-stacked"></i>
+
+              <span>Unidades disponibles</span>
+
+              <strong id="stockTotalUnits">0</strong>
+            </article>
+
+            <article class="panel-card stock-stat">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+
+              <span>Stock bajo</span>
+
+              <strong id="stockLowProducts">0</strong>
+            </article>
+
+            <article class="panel-card stock-stat">
+              <i class="fa-solid fa-box-open"></i>
+
+              <span>Productos agotados</span>
+
+              <strong id="stockEmptyProducts">0</strong>
+            </article>
+          </div>
+
+          <article class="panel-card">
+            <div class="filters-grid">
+              <div class="form-group">
+                <label for="stockSearch"> Buscar producto </label>
+
+                <input
+                  type="search"
+                  id="stockSearch"
+                  placeholder="Nombre de la prenda..."
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="stockCategory"> Categoría </label>
+
+                <select id="stockCategory">
+                  <option value="">Todas las categorías</option>
+
+                  <option value="Bebés">Bebés</option>
+
+                  <option value="Nenas">Nenas</option>
+
+                  <option value="Nenes">Nenes</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="stockStatus"> Disponibilidad </label>
+
+                <select id="stockStatus">
+                  <option value="">Todos</option>
+
+                  <option value="available">Disponible</option>
+
+                  <option value="low">Stock bajo</option>
+
+                  <option value="empty">Agotado</option>
+                </select>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel-card">
+            <div class="card-heading">
+              <h2>Inventario de productos</h2>
+
+              <p>Actualizá las cantidades por talle y color.</p>
+            </div>
+
+            <div id="stockProductsList" class="stock-products-list"></div>
+          </article>
+        </section>
+
+        <!-- =============================
+                 SECCIÓN: PROMOCIONES
+            ============================== -->
+
+        <section id="promociones" class="admin-section" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">NOVEDADES Y OFERTAS</p>
+
+              <h1>Promociones</h1>
+
+              <p class="section-description">
+                Creá descuentos y novedades para mostrar en tu tienda.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              id="openPromotionModal"
+              class="btn btn-primary"
+            >
+              <i class="fa-solid fa-plus"></i>
+
+              Nueva promoción
+            </button>
+          </div>
+
+          <!-- BARRA DE NOVEDADES -->
+
+          <article class="panel-card">
+            <div class="card-heading">
+              <h2>Barra de novedades</h2>
+
+              <p>
+                Modificá el mensaje que aparece en la parte superior de la
+                tienda.
+              </p>
+            </div>
+
+            <form id="announcementForm">
+              <div class="form-group">
+                <label for="announcementText"> Mensaje </label>
+
+                <input
+                  type="text"
+                  id="announcementText"
+                  maxlength="150"
+                  value="♡ Moda infantil con mucho amor · Rosario ♡"
+                />
+              </div>
+
+              <label class="switch-row">
+                <div>
+                  <strong>Mostrar mensaje</strong>
+
+                  <small> Activar la barra de novedades. </small>
+                </div>
+
+                <input type="checkbox" id="announcementVisible" checked />
+
+                <span class="switch"></span>
+              </label>
+
+              <button type="submit" class="btn btn-primary">
+                <i class="fa-regular fa-floppy-disk"></i>
+
+                Guardar mensaje
+              </button>
+            </form>
+          </article>
+
+          <!-- PROMOCIONES CREADAS -->
+
+          <article class="panel-card">
+            <div class="card-heading">
+              <h2>Promociones creadas</h2>
+            </div>
+
+            <div id="promotionsList" class="promotions-list"></div>
+
+            <div id="promotionsEmpty" class="empty-state" hidden>
+              <i class="fa-solid fa-tags"></i>
+
+              <h3>No hay promociones creadas</h3>
+
+              <p>Agregá una promoción para destacar tus productos.</p>
+            </div>
+          </article>
+        </section>
+
+        <!-- =============================
+                 SECCIÓN: PERSONALIZACIÓN
+            ============================== -->
+
+        <section id="personalizacion" class="admin-section" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">DISEÑO DE LA TIENDA</p>
+
+              <h1>Personalización</h1>
+
+              <p class="section-description">
+                Actualizá las imágenes y los textos principales de tu página
+                web.
+              </p>
+            </div>
+
+            <a href="../index.html" class="btn btn-outline">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+              Ver tienda
+            </a>
+          </div>
+
+          <form id="customizationForm">
+            <!-- PORTADA -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Portada principal</h2>
+
+                <p>Personalizá la primera sección que ven tus clientes.</p>
+              </div>
+
+              <div class="customization-grid">
+                <div class="customization-image">
+                  <img
+                    id="heroPreview"
+                    src="../assets/portada.jpg"
+                    alt="Imagen de portada"
+                  />
+
+                  <label for="heroUpload" class="btn btn-outline">
+                    <i class="fa-solid fa-camera"></i>
+
+                    Cambiar imagen
+                  </label>
+
+                  <input
+                    type="file"
+                    id="heroUpload"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden
+                  />
+                </div>
+
+                <div class="customization-fields">
+                  <div class="form-group">
+                    <label for="heroEyebrow"> Texto superior </label>
+
+                    <input
+                      type="text"
+                      id="heroEyebrow"
+                      value="BABY & KIDS · HASTA TALLE 12"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="heroTitle"> Título principal </label>
+
+                    <input
+                      type="text"
+                      id="heroTitle"
+                      value="Pequeños momentos, grandes recuerdos."
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="heroDescription"> Descripción </label>
+
+                    <textarea id="heroDescription" rows="5">
+Descubrí prendas pensadas para acompañar cada etapa de su infancia, con delicadeza, comodidad y calidad.</textarea
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="heroButtonText"> Texto del botón </label>
+
+                    <input
+                      type="text"
+                      id="heroButtonText"
+                      value="Descubrir colección"
+                    />
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- IMÁGENES DE CATEGORÍAS -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Imágenes de categorías</h2>
+
+                <p>Cambiá las fotografías de las categorías principales.</p>
+              </div>
+
+              <div id="categoryImageEditors" class="category-images-grid">
+                <div class="category-image-editor">
+                  <img
+                    id="babyCategoryPreview"
+                    src="../assets/bebes.jpg"
+                    alt="Categoría bebés"
+                  />
+
+                  <h3>Bebés</h3>
+
+                  <label for="babyCategoryUpload" class="btn btn-outline">
+                    Cambiar imagen
+                  </label>
+
+                  <input
+                    type="file"
+                    id="babyCategoryUpload"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden
+                  />
+                </div>
+
+                <div class="category-image-editor">
+                  <img
+                    id="girlCategoryPreview"
+                    src="../assets/nenas.jpg"
+                    alt="Categoría nenas"
+                  />
+
+                  <h3>Nenas</h3>
+
+                  <label for="girlCategoryUpload" class="btn btn-outline">
+                    Cambiar imagen
+                  </label>
+
+                  <input
+                    type="file"
+                    id="girlCategoryUpload"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden
+                  />
+                </div>
+
+                <div class="category-image-editor">
+                  <img
+                    id="boyCategoryPreview"
+                    src="../assets/nenes.jpg"
+                    alt="Categoría nenes"
+                  />
+
+                  <h3>Nenes</h3>
+
+                  <label for="boyCategoryUpload" class="btn btn-outline">
+                    Cambiar imagen
+                  </label>
+
+                  <input
+                    type="file"
+                    id="boyCategoryUpload"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden
+                  />
+                </div>
+              </div>
+            </article>
+
+            <!-- NUESTRA ESENCIA -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Nuestra esencia</h2>
+
+                <p>Modificá la presentación de tu marca.</p>
+              </div>
+
+              <div class="customization-grid">
+                <div class="customization-image">
+                  <img
+                    id="aboutPreview"
+                    src="../assets/nosotros.jpg"
+                    alt="Imagen de presentación"
+                  />
+
+                  <label for="aboutUpload" class="btn btn-outline">
+                    <i class="fa-solid fa-camera"></i>
+
+                    Cambiar imagen
+                  </label>
+
+                  <input
+                    type="file"
+                    id="aboutUpload"
+                    accept="image/jpeg,image/png,image/webp"
+                    hidden
+                  />
+                </div>
+
+                <div class="customization-fields">
+                  <div class="form-group">
+                    <label for="aboutTitle"> Título </label>
+
+                    <input
+                      type="text"
+                      id="aboutTitle"
+                      value="Moda infantil con mucho amor"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="aboutDescription"> Primer párrafo </label>
+
+                    <textarea id="aboutDescription" rows="5">
+En Corazón de Melón encontrarás indumentaria para bebés y niños, con una propuesta que combina diseño, comodidad y calidad.</textarea
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="aboutSecondParagraph"> Segundo párrafo </label>
+
+                    <textarea id="aboutSecondParagraph" rows="5">
+Prendas para disfrutar cada momento, desde las primeras aventuras hasta las ocasiones más especiales.</textarea
+                    >
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- GUÍA DE TALLES -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Guía de talles</h2>
+
+                <p>
+                  Agregá información para ayudar a tus clientes a elegir el
+                  talle.
+                </p>
+              </div>
+
+              <div class="form-group">
+                <label for="sizeGuideText"> Información de talles </label>
+
+                <textarea
+                  id="sizeGuideText"
+                  rows="5"
+                  placeholder="Escribí las recomendaciones de talles..."
+                ></textarea>
+              </div>
+
+              <label for="sizeGuideUpload" class="upload-area">
+                <i class="fa-solid fa-ruler"></i>
+
+                <strong> Subir imagen de guía de talles </strong>
+
+                <small> JPG, PNG o WEBP </small>
+
+                <input
+                  type="file"
+                  id="sizeGuideUpload"
+                  accept="image/jpeg,image/png,image/webp"
+                />
+              </label>
+
+              <div id="sizeGuidePreview" class="image-preview-grid"></div>
+            </article>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fa-regular fa-floppy-disk"></i>
+
+                Guardar cambios
+              </button>
+            </div>
+
+            <p id="customizationMessage" class="form-message" role="status"></p>
+          </form>
+        </section>
+
+        <!-- =============================
+                 SECCIÓN: CONFIGURACIÓN
+            ============================== -->
+
+        <section id="configuracion" class="admin-section" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">AJUSTES GENERALES</p>
+
+              <h1>Configuración</h1>
+
+              <p class="section-description">
+                Administrá la información de tu negocio.
+              </p>
+            </div>
+          </div>
+
+          <form id="settingsForm">
+            <!-- DATOS DEL NEGOCIO -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Información del negocio</h2>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="businessName"> Nombre del negocio </label>
+
+                  <input
+                    type="text"
+                    id="businessName"
+                    value="Corazón de Melón"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="businessSubtitle"> Descripción breve </label>
+
+                  <input
+                    type="text"
+                    id="businessSubtitle"
+                    value="Baby & Kids Wear"
+                  />
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="businessAddress"> Dirección </label>
+
+                  <input
+                    type="text"
+                    id="businessAddress"
+                    value="Córdoba 947, Local 42"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="businessGallery">
+                    Galería o centro comercial
+                  </label>
+
+                  <input
+                    type="text"
+                    id="businessGallery"
+                    value="Galería del Paseo"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="businessCity"> Ciudad </label>
+
+                  <input
+                    type="text"
+                    id="businessCity"
+                    value="Rosario, Santa Fe"
+                  />
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="businessHours"> Horarios de atención </label>
+
+                  <textarea
+                    id="businessHours"
+                    rows="4"
+                    placeholder="Ingresá los horarios del local..."
+                  ></textarea>
+                </div>
+              </div>
+            </article>
+
+            <!-- CONTACTO -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Contacto y redes sociales</h2>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="businessWhatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    WhatsApp
+                  </label>
+
+                  <input
+                    type="tel"
+                    id="businessWhatsapp"
+                    placeholder="549341XXXXXXX"
+                  />
+
+                  <small class="field-help">
+                    Ingresá el número con código de país y área, sin espacios.
+                  </small>
+                </div>
+
+                <div class="form-group">
+                  <label for="businessInstagram">
+                    <i class="fa-brands fa-instagram"></i>
+
+                    Instagram
+                  </label>
+
+                  <input
+                    type="text"
+                    id="businessInstagram"
+                    value="corazondemelonrosario"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="businessEmail">
+                    <i class="fa-regular fa-envelope"></i>
+
+                    Correo electrónico
+                  </label>
+
+                  <input
+                    type="email"
+                    id="businessEmail"
+                    placeholder="Correo del negocio"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="businessFacebook">
+                    <i class="fa-brands fa-facebook"></i>
+
+                    Facebook
+                  </label>
+
+                  <input
+                    type="url"
+                    id="businessFacebook"
+                    placeholder="https://facebook.com/..."
+                  />
+                </div>
+
+                <div class="form-group full-width">
+                  <label for="businessMaps"> Enlace de Google Maps </label>
+
+                  <input
+                    type="url"
+                    id="businessMaps"
+                    placeholder="Enlace de la ubicación"
+                  />
+                </div>
+              </div>
+            </article>
+
+            <!-- CONFIGURACIÓN DEL CATÁLOGO -->
+
+            <article class="panel-card">
+              <div class="card-heading">
+                <h2>Preferencias del catálogo</h2>
+              </div>
+
+              <label class="switch-row">
+                <div>
+                  <strong>Mostrar precios</strong>
+
+                  <small>
+                    Mostrar el precio de las prendas en el catálogo.
+                  </small>
+                </div>
+
+                <input type="checkbox" id="settingsShowPrices" checked />
+
+                <span class="switch"></span>
+              </label>
+
+              <label class="switch-row">
+                <div>
+                  <strong>Mostrar productos agotados</strong>
+
+                  <small> Mantener visibles las prendas sin stock. </small>
+                </div>
+
+                <input type="checkbox" id="settingsShowOutOfStock" checked />
+
+                <span class="switch"></span>
+              </label>
+
+              <label class="switch-row">
+                <div>
+                  <strong>Botón flotante de WhatsApp</strong>
+
+                  <small> Permitir consultas directas desde la tienda. </small>
+                </div>
+
+                <input type="checkbox" id="settingsShowWhatsapp" checked />
+
+                <span class="switch"></span>
+              </label>
+            </article>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fa-regular fa-floppy-disk"></i>
+
+                Guardar configuración
+              </button>
+            </div>
+
+            <p id="settingsMessage" class="form-message" role="status"></p>
+          </form>
+
+          <!-- INFORMACIÓN DE LA MAQUETA -->
+
+          <article class="panel-card demo-information">
+            <div class="card-heading">
+              <h2>
+                <i class="fa-solid fa-circle-info"></i>
+
+                Información de la maqueta
+              </h2>
+            </div>
+
+            <p>
+              Este panel administrativo es una demostración del funcionamiento
+              de la futura tienda web.
+            </p>
+
+            <p>
+              Los cambios realizados durante la prueba se almacenarán localmente
+              en el navegador. No corresponden a una base de datos real.
+            </p>
+
+            <button type="button" id="resetDemo" class="btn btn-danger-outline">
+              <i class="fa-solid fa-rotate-left"></i>
+
+              Restablecer datos de demostración
+            </button>
+          </article>
+        </section>
+
+        <!-- =================================
+                 PIE DEL PANEL
+            ================================== -->
+
+        <footer class="admin-footer">
+          <p>♡ Corazón de Melón · Panel administrativo</p>
+
+          <small> Desarrollo y diseño web · Lucila Studio </small>
+        </footer>
+      </main>
+    </div>
+
+    <!-- =====================================
+         VENTANA: CREAR O EDITAR CATEGORÍA
+    ====================================== -->
+
+    <dialog id="categoryModal" class="admin-modal">
+      <div class="modal-heading">
+        <h2 id="categoryModalTitle">Nueva categoría</h2>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close="categoryModal"
+          aria-label="Cerrar ventana"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="categoryForm">
+        <input type="hidden" id="editingCategoryId" />
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="categoryName"> Nombre de la categoría * </label>
+
+            <input
+              type="text"
+              id="categoryName"
+              placeholder="Nombre de la categoría"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="categoryDescription"> Descripción </label>
+
+            <textarea
+              id="categoryDescription"
+              rows="4"
+              placeholder="Descripción de la categoría"
+            ></textarea>
+          </div>
+
+          <label for="categoryImage" class="upload-area">
+            <i class="fa-regular fa-image"></i>
+
+            <strong>Seleccionar imagen</strong>
+
+            <input
+              type="file"
+              id="categoryImage"
+              accept="image/jpeg,image/png,image/webp"
+            />
+          </label>
+
+          <div id="categoryModalPreview" class="image-preview-grid"></div>
+
+          <label class="switch-row">
+            <div>
+              <strong>Categoría visible</strong>
+
+              <small> Mostrar esta categoría en la tienda. </small>
+            </div>
+
+            <input type="checkbox" id="categoryVisible" checked />
+
+            <span class="switch"></span>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-close="categoryModal"
+          >
+            Cancelar
+          </button>
+
+          <button type="submit" class="btn btn-primary">
+            Guardar categoría
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- =====================================
+         VENTANA: CREAR PROMOCIÓN
+    ====================================== -->
+
+    <dialog id="promotionModal" class="admin-modal">
+      <div class="modal-heading">
+        <h2 id="promotionModalTitle">Nueva promoción</h2>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close="promotionModal"
+          aria-label="Cerrar ventana"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="promotionForm">
+        <input type="hidden" id="editingPromotionId" />
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="promotionName"> Nombre de la promoción * </label>
+
+            <input
+              type="text"
+              id="promotionName"
+              placeholder="Ej. Especial de verano"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="promotionDescription"> Descripción </label>
+
+            <textarea
+              id="promotionDescription"
+              rows="4"
+              placeholder="Información de la promoción"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="promotionType"> Tipo de promoción </label>
+
+            <select id="promotionType">
+              <option value="percentage">Descuento porcentual</option>
+
+              <option value="fixed">Descuento en pesos</option>
+
+              <option value="announcement">Novedad sin descuento</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="promotionValueGroup">
+            <label for="promotionValue"> Valor del descuento </label>
+
+            <input
+              type="number"
+              id="promotionValue"
+              min="1"
+              max="100"
+              step="1"
+              placeholder="Ej. 20"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="promotionScope"> Aplicar a </label>
+
+            <select id="promotionScope">
+              <option value="all">Todos los productos</option>
+
+              <option value="category">Una categoría</option>
+
+              <option value="products">Productos seleccionados</option>
+            </select>
+          </div>
+
+          <div id="promotionCategoryGroup" class="form-group" hidden>
+            <label for="promotionCategory"> Seleccionar categoría </label>
+
+            <select id="promotionCategory">
+              <option value="">Seleccionar categoría</option>
+            </select>
+          </div>
+
+          <div id="promotionProductsGroup" class="form-group" hidden>
+            <label>Seleccionar productos</label>
+
+            <div id="promotionProductOptions"></div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="promotionStart"> Fecha de inicio </label>
+
+              <input type="date" id="promotionStart" />
+            </div>
+
+            <div class="form-group">
+              <label for="promotionEnd"> Fecha de finalización </label>
+
+              <input type="date" id="promotionEnd" />
+            </div>
+          </div>
+
+          <label class="switch-row">
+            <div>
+              <strong>Promoción activa</strong>
+
+              <small> Mostrar la promoción en la tienda. </small>
+            </div>
+
+            <input type="checkbox" id="promotionActive" checked />
+
+            <span class="switch"></span>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-close="promotionModal"
+          >
+            Cancelar
+          </button>
+
+          <button type="submit" class="btn btn-primary">
+            Guardar promoción
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- =====================================
+         VENTANA: EDITAR STOCK
+    ====================================== -->
+
+    <dialog id="stockModal" class="admin-modal">
+      <div class="modal-heading">
+        <h2>Actualizar stock</h2>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close="stockModal"
+          aria-label="Cerrar ventana"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="stockForm">
+        <input type="hidden" id="stockProductId" />
+
+        <div class="modal-body">
+          <h3 id="stockModalProductName"></h3>
+
+          <p class="field-help">
+            Modificá las cantidades disponibles de cada variante.
+          </p>
+
+          <div id="stockModalVariants">
+            <!-- Variantes generadas por JavaScript -->
+          </div>
+
+          <div class="stock-total">
+            <span>Stock total</span>
+
+            <strong id="stockModalTotal"> 0 unidades </strong>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-close="stockModal"
+          >
+            Cancelar
+          </button>
+
+          <button type="submit" class="btn btn-primary">Guardar stock</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- =====================================
+         VENTANA DE CONFIRMACIÓN
+    ====================================== -->
+
+    <dialog id="confirmModal" class="admin-modal confirm-modal">
+      <div class="modal-body">
+        <div class="confirm-icon">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+        <h2 id="confirmTitle">Confirmar acción</h2>
+
+        <p id="confirmMessage">¿Estás segura de que querés continuar?</p>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelConfirm" class="btn btn-secondary">
+          Cancelar
+        </button>
+
+        <button type="button" id="acceptConfirm" class="btn btn-danger">
+          Confirmar
+        </button>
+      </div>
+    </dialog>
+
+    <!-- =====================================
+         NOTIFICACIONES
+    ====================================== -->
+
+    <div
+      id="adminToast"
+      class="admin-toast"
+      role="status"
+      aria-live="polite"
+      hidden
+    >
+      <div class="toast-icon">
+        <i id="toastIcon" class="fa-solid fa-circle-check"></i>
+      </div>
+
+      <div class="toast-content">
+        <strong id="toastTitle"> Cambios guardados </strong>
+
+        <p id="toastMessage">La operación se realizó correctamente.</p>
+      </div>
+
+      <button type="button" id="closeToast" aria-label="Cerrar notificación">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+  </body>
+</html>

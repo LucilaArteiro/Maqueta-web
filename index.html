@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Corazón de Melón | Baby & Kids Wear</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <div class="admin-access-bar">
+      <a
+        href="./admin/index.html"
+        class="admin-access"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect x="3" y="3" width="7" height="7" rx="1.5" />
+          <rect x="14" y="3" width="7" height="7" rx="1.5" />
+          <rect x="3" y="14" width="7" height="7" rx="1.5" />
+          <rect x="14" y="14" width="7" height="7" rx="1.5" />
+        </svg>
+
+        <span>Panel administrativo</span>
+
+        <span class="admin-access-arrow">↗</span>
+      </a>
+    </div>
+  </head>
+
+  <body>
+    <!-- BARRA SUPERIOR -->
+
+    <div class="notice">♡ Moda infantil con mucho amor · Rosario ♡</div>
+
+    <!-- ENCABEZADO -->
+
+    <header>
+      <a class="brand" href="#inicio">
+        <span class="brand-heart">♡</span>
+        <span>CORAZÓN DE MELÓN</span>
+        <small>Baby & Kids Wear</small>
+      </a>
+
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#categorias">Categorías</a>
+        <a href="#catalogo">Colecciones</a>
+        <a href="#talles">Guía de talles</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <button id="openCart" class="cart-button">
+        Bolsa (<span id="count">0</span>)
+      </button>
+    </header>
+
+    <main>
+      <!-- PORTADA PRINCIPAL -->
+
+      <section class="hero" id="inicio">
+        <div class="hero-content">
+          <p class="eyebrow">BABY & KIDS · HASTA TALLE 12</p>
+
+          <h1>
+            Pequeños momentos,
+            <br />
+            grandes recuerdos.
+          </h1>
+
+          <p>
+            Descubrí prendas pensadas para acompañar cada etapa de su infancia,
+            con delicadeza, comodidad y calidad.
+          </p>
+
+          <a class="btn" href="#catalogo"> Descubrir colección → </a>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="assets/portada.jpg"
+            alt="Colección de ropa infantil Corazón de Melón"
+          />
+        </div>
+      </section>
+
+      <!-- CATEGORÍAS -->
+
+      <section id="categorias" class="categories-section">
+        <p class="eyebrow">PARA CADA ETAPA DE SU INFANCIA</p>
+
+        <h2>Encontrá su próximo look</h2>
+
+        <div class="categories-grid">
+          <!-- BEBÉS -->
+
+          <button class="category-card" data-category="Bebés">
+            <img
+              src="assets/bebes.jpg"
+              alt="Indumentaria para bebés"
+              loading="lazy"
+            />
+
+            <div class="category-info">
+              <h3>Bebés</h3>
+              <p>Sus primeros momentos</p>
+              <span>Ver colección →</span>
+            </div>
+          </button>
+
+          <!-- NENAS -->
+
+          <button class="category-card" data-category="Nenas">
+            <img
+              src="assets/nenas.jpg"
+              alt="Indumentaria para nenas"
+              loading="lazy"
+            />
+
+            <div class="category-info">
+              <h3>Nenas</h3>
+              <p>Pequeños grandes estilos</p>
+              <span>Ver colección →</span>
+            </div>
+          </button>
+
+          <!-- NENES -->
+
+          <button class="category-card" data-category="Nenes">
+            <img
+              src="assets/nenes.jpg"
+              alt="Indumentaria para nenes"
+              loading="lazy"
+            />
+
+            <div class="category-info">
+              <h3>Nenes</h3>
+              <p>Listos para cada aventura</p>
+              <span>Ver colección →</span>
+            </div>
+          </button>
+        </div>
+      </section>
+
+      <!-- CATÁLOGO -->
+
+      <section id="catalogo" class="catalog-section">
+        <p class="eyebrow">DISEÑO, COMODIDAD Y CALIDAD</p>
+
+        <h2>Nuestras colecciones</h2>
+
+        <p class="section-description">
+          Descubrí nuestras prendas y encontrá el look ideal para cada ocasión.
+        </p>
+
+        <!-- FILTROS -->
+
+        <div class="filters">
+          <button data-cat="Todos" class="active">Todos</button>
+
+          <button data-cat="Bebés">Bebés</button>
+
+          <button data-cat="Nenas">Nenas</button>
+
+          <button data-cat="Nenes">Nenes</button>
+
+          <select id="sizeFilter" aria-label="Filtrar por talle">
+            <option value="">Todos los talles</option>
+          </select>
+        </div>
+
+        <!-- PRODUCTOS GENERADOS POR JAVASCRIPT -->
+
+        <div id="products" class="products"></div>
+
+        <p class="demo">
+          Catálogo de demostración. Productos y precios ilustrativos.
+        </p>
+      </section>
+
+      <!-- PRESENTACIÓN DE LA MARCA -->
+
+      <section class="about-section" id="nosotros">
+        <div class="about-image">
+          <img
+            src="assets/nosotros.jpg"
+            alt="Detalles de indumentaria infantil"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="about-content">
+          <p class="eyebrow">NUESTRA ESENCIA</p>
+
+          <h2>Moda infantil con mucho amor</h2>
+
+          <p>
+            En Corazón de Melón encontrarás indumentaria para bebés y niños, con
+            una propuesta que combina diseño, comodidad y calidad.
+          </p>
+
+          <p>
+            Prendas para disfrutar cada momento, desde las primeras aventuras
+            hasta las ocasiones más especiales.
+          </p>
+
+          <a class="btn" href="#catalogo"> Conocé nuestras colecciones </a>
+        </div>
+      </section>
+
+      <!-- BENEFICIOS -->
+
+      <section class="benefits-section">
+        <div class="benefit">
+          <span>♡</span>
+          <h3>Calidad premium</h3>
+          <p>Prendas para cada etapa.</p>
+        </div>
+
+        <div class="benefit">
+          <span>✧</span>
+          <h3>Diseños especiales</h3>
+          <p>Estilo y comodidad.</p>
+        </div>
+
+        <div class="benefit">
+          <span>♧</span>
+          <h3>Hasta talle 12</h3>
+          <p>Para bebés, nenas y nenes.</p>
+        </div>
+
+        <div class="benefit">
+          <span>♡</span>
+          <h3>Atención personalizada</h3>
+          <p>Estamos para ayudarte.</p>
+        </div>
+      </section>
+
+      <!-- GUÍA DE TALLES -->
+
+      <section id="talles" class="soft">
+        <p class="eyebrow">ENCONTRÁ EL TALLE IDEAL</p>
+
+        <h2>Guía de talles</h2>
+
+        <p>Contamos con prendas para bebés y niños hasta talle 12.</p>
+
+        <p>
+          Las medidas pueden variar según el modelo. Consultanos para elegir el
+          talle adecuado.
+        </p>
+
+        <a
+          class="btn"
+          href="https://wa.me/5493415053490"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Consultar por talles
+        </a>
+      </section>
+
+      <!-- CONTACTO -->
+
+      <section id="contacto" class="contact-section">
+        <p class="eyebrow">TE ESPERAMOS</p>
+
+        <h2>Vení a visitarnos</h2>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Ubicación</h3>
+
+            <p>Córdoba 947, local 42</p>
+            <p>Galería del Paseo</p>
+            <p>Rosario, Santa Fe</p>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Cordoba+947+Rosario+Santa+Fe"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Cómo llegar →
+            </a>
+          </div>
+
+          <div class="contact-card">
+            <h3>Horarios</h3>
+
+            <p>Lunes a viernes</p>
+            <p>9:00 a 18:00 hs</p>
+
+            <p>Sábados</p>
+            <p>10:00 a 18:00 hs</p>
+          </div>
+
+          <div class="contact-card">
+            <h3>Contacto</h3>
+
+            <p>¿Tenés alguna consulta?</p>
+
+            <a
+              href="https://wa.me/5493415053490"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+
+            <br /><br />
+
+            <a
+              href="https://www.instagram.com/corazondemelonrosario/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+      <div class="footer-brand">
+        <span>♡</span>
+
+        <h2>CORAZÓN DE MELÓN</h2>
+
+        <p>Baby & Kids Wear</p>
+      </div>
+
+      <p>Moda infantil con mucho amor.</p>
+
+      <p>Rosario, Santa Fe, Argentina.</p>
+
+      <div class="footer-bottom">
+        <p>© 2026 Corazón de Melón. Todos los derechos reservados.</p>
+
+        <small> Maqueta desarrollada por Lucila Studio </small>
+      </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+
+    <a
+      class="floating"
+      href="https://wa.me/5493415053490"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      WhatsApp
+    </a>
+
+    <!-- VENTANA DE DETALLE DEL PRODUCTO -->
+
+    <dialog id="productModal" class="product-modal">
+      <button
+        id="closeProduct"
+        class="modal-close"
+        aria-label="Cerrar producto"
+      >
+        ×
+      </button>
+
+      <div class="product-modal-grid">
+        <!-- FOTO AMPLIADA -->
+
+        <div class="modal-image">
+          <img id="modalProductImage" alt="Fotografía del producto" />
+        </div>
+
+        <!-- INFORMACIÓN DEL PRODUCTO -->
+
+        <div class="modal-information">
+          <p id="modalProductCategory" class="eyebrow"></p>
+
+          <h2 id="modalProductName"></h2>
+
+          <p id="modalProductDescription"></p>
+
+          <strong id="modalProductPrice"></strong>
+
+          <!-- SELECCIÓN DE TALLE -->
+
+          <div class="product-option">
+            <label for="modalSize"> Seleccioná el talle </label>
+
+            <select id="modalSize">
+              <option value="">Elegir talle</option>
+            </select>
+          </div>
+
+          <!-- SELECCIÓN DE COLOR -->
+
+          <div class="product-option">
+            <label for="modalColor"> Seleccioná el color </label>
+
+            <select id="modalColor">
+              <option value="">Elegir color</option>
+            </select>
+          </div>
+
+          <!-- CANTIDAD -->
+
+          <div class="product-option">
+            <label for="modalQuantity"> Cantidad </label>
+
+            <div class="quantity-control">
+              <button
+                id="decreaseQuantity"
+                type="button"
+                aria-label="Disminuir cantidad"
+              >
+                −
+              </button>
+
+              <input
+                type="number"
+                id="modalQuantity"
+                value="1"
+                min="1"
+                readonly
+              />
+
+              <button
+                id="increaseQuantity"
+                type="button"
+                aria-label="Aumentar cantidad"
+              >
+                +
+              </button>
+            </div>
+          </div>
+
+          <!-- AGREGAR AL CARRITO -->
+
+          <button id="addToCart" class="btn">Agregar a la bolsa</button>
+
+          <p id="productMessage" role="status"></p>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- CARRITO DE COMPRAS -->
+
+    <dialog id="cart" class="cart-modal">
+      <div class="carthead">
+        <h2>Tu bolsa de compras</h2>
+
+        <button id="closeCart" aria-label="Cerrar carrito">×</button>
+      </div>
+
+      <div id="items"></div>
+
+      <div class="cart-summary">
+        <p id="total">Total: $0</p>
+
+        <button id="order" class="btn">Enviar pedido por WhatsApp</button>
+
+        <p class="demo">
+          El pedido se coordina directamente con el local mediante WhatsApp.
+        </p>
+      </div>
+    </dialog>
+
+    <!-- NOTIFICACIÓN DE PRODUCTO AGREGADO -->
+
+    <div id="toast" class="toast" role="status" hidden>
+      ♡ Producto agregado a tu bolsa
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script src="app.js"></script>
+  </body>
+</html>
